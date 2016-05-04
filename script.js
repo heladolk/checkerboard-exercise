@@ -1,11 +1,10 @@
 // Your JS goes here
 // Gradient
-
 var row = 7;
 var col = 9;
 
-var rgbColor1 = [Math.floor(Math.random() * 256), Math.floor(Math.random() * 256), Math.floor(Math.random() * 256)];
-var rgbColor2 = [Math.floor(Math.random() * 256), Math.floor(Math.random() * 256), Math.floor(Math.random() * 256)];
+var rgbColor1 = generateRandomColor();
+var rgbColor2 = generateRandomColor();
 
 var body = document.getElementsByTagName("body")[0];
 
@@ -39,5 +38,9 @@ for (var i = 0; i < row; i++) {
 	}
 }
 
+// generate random RGB colors in format rgb(num1, num2, num3)
+function generateRandomColor() {
+	var rgbColor = [Math.floor(Math.random() * 256), Math.floor(Math.random() * 256), Math.floor(Math.random() * 256)];
 
-
+	return rgbColor;
+}
