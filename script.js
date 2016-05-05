@@ -7,36 +7,40 @@ var col = 9;
 var body = document.getElementsByTagName("body")[0];
 
 // column * row Checkerboard
-function drawCheckerBoard() {
-	for (var i = 0; i < row; i++) {
-		for (var j = 0; j < col; j++) {
-			var rgbColor, tileColor, tile;
-			
-			tile = document.createElement('div');
-			tile.style.width = "11.1%";
-			tile.style.float = "left";
-			tile.style.paddingBottom = "11.1%";
-			
-			// generate random RGB colors in format rgb(num1, num2, num3)
-			tile.style.backgroundColor = pickColor();
+for (var i = 0; i < row; i++) {
+	for (var j = 0; j < col; j++) {
+		var rgbColor, tileColor, tile;
+		
+		tile = document.createElement('div');
+		tile.style.width = "11.1%";
+		tile.style.float = "left";
+		tile.style.paddingBottom = "11.1%";
+		
+		rgbColor = generateRandomColor();
+		tileColor = "rgb(" + rgbColor.join(",") + ")"
+		tile.style.backgroundColor = tileColor;
 
-			body.appendChild(tile);
-		}
-	};
-}
+		body.appendChild(tile);
+	}
+};
 
-function pickColor() {
+changeTileColors();
+
+// generate random RGB colors in format rgb(num1, num2, num3)
+function generateRandomColor() {
 	var rgbColor = [Math.floor(Math.random() * 256), Math.floor(Math.random() * 256), Math.floor(Math.random() * 256)];
-	var tileColor = "rgb(" + rgbColor.join(",") + ")"
-	return tileColor;
+	return rgbColor;
 }
 
-drawCheckerBoard();
+function changeTileColors() {
+	tile.style.backgrondColor = newTileColor;
+}
+
 
 // change color every 2 seconds
-setTimeout(drawCheckerBoard(), 2000);
-setTimeout(drawCheckerBoard(), 4000);
-setTimeout(drawCheckerBoard(), 6000);
+// setTimeout(drawCheckerBoard(), 2000);
+// setTimeout(drawCheckerBoard(), 4000);
+// setTimeout(drawCheckerBoard(), 6000);
 
 
 
