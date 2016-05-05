@@ -38,15 +38,13 @@ function changeTileColors() {
 	for (var i = 0; i < tiles.length; i++) {
 		rgbColor = generateRandomColor();
 		newTileColor = "rgb(" + rgbColor.join(",") + ")"
-		tiles[i].style.backgrondColor = newTileColor;
+		tiles[i].style.backgroundColor = newTileColor;
 	}
 
 }
 
-
 // change color every 2 seconds
-setTimeout(changeTileColors, 2000);
-setTimeout(changeTileColors, 4000);
+setInterval(changeTileColors, 2000);
 
 
 
