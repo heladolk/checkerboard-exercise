@@ -24,8 +24,6 @@ for (var i = 0; i < row; i++) {
 	}
 };
 
-changeTileColors();
-
 // generate random RGB colors in format rgb(num1, num2, num3)
 function generateRandomColor() {
 	var rgbColor = [Math.floor(Math.random() * 256), Math.floor(Math.random() * 256), Math.floor(Math.random() * 256)];
@@ -33,14 +31,22 @@ function generateRandomColor() {
 }
 
 function changeTileColors() {
-	tile.style.backgrondColor = newTileColor;
+	var rgbColor, newTileColor;
+
+	tiles = document.getElementsByTagName("div");
+
+	for (var i = 0; i < tiles.length; i++) {
+		rgbColor = generateRandomColor();
+		newTileColor = "rgb(" + rgbColor.join(",") + ")"
+		tiles[i].style.backgrondColor = newTileColor;
+	}
+
 }
 
 
 // change color every 2 seconds
-// setTimeout(drawCheckerBoard(), 2000);
-// setTimeout(drawCheckerBoard(), 4000);
-// setTimeout(drawCheckerBoard(), 6000);
+setTimeout(changeTileColors, 2000);
+setTimeout(changeTileColors, 4000);
 
 
 
